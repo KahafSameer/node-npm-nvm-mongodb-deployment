@@ -16,70 +16,70 @@ This document contains the complete set of documentation for setting up MongoDB,
 
 <div style="page-break-after: always;"></div>
 
-# Mango DB Installation on Windows
+# MongoDB Installation on Windows
 
-Hum do (2) cheezein install karenge: MongoDB Server aur MongoDB Shell (command line se use karne ke liye).
+We will install two (2) things: MongoDB Server and MongoDB Shell (to use from the command line).
 
-## 💻 Step 1: MongoDB Community Server Download Karna
+## 💻 Step 1: Download MongoDB Community Server
 
-**Browser Kholo**: Apne web browser mein yeh link type karo (ya click karo):
+**Open Browser**: Type (or click) this link in your web browser:
 
 [https://www.mongodb.com/try/download/community](https://www.mongodb.com/try/download/community)
 
-**Options Select Karo**: Download page par, yeh options select karo:
+**Select Options**: On the download page, select these options:
 
-- **Version**: Latest version (usually default hota hai).
+- **Version**: Latest version (usually default).
 - **OS (Operating System)**: Windows.
-- **Package**: MSI (Yah installation file hai).
+- **Package**: MSI (This is the installation file).
 
-**Download**: Download button par click karo aur file ko save hone do.
+**Download**: Click the Download button and let the file save.
 
-## ⚙️ Step 2: MongoDB Server Install Karna
+## ⚙️ Step 2: Install MongoDB Server
 
-**Installer Chalao**: Jo file (.msi) download hui hai, us par double-click karo.
+**Run Installer**: Double-click the downloaded file (.msi).
 
-**Setup Wizard**: Setup Wizard shuru hoga.
+**Setup Wizard**: The Setup Wizard will start.
 
 **Setup Type**:
-- "Choose Setup Type" screen par, "Complete" option select karo.
+- On the "Choose Setup Type" screen, select the "Complete" option.
 
-**Service Configuration (Zaroori)**:
-- "Install MongoD as a Service" option ko checked rehne do.
-- "Run service as Network Service user" (default) ko select karo.
-- "Service Name" ko MongoDB hi rehne do.
+**Service Configuration (Important)**:
+- Keep "Install MongoD as a Service" checked.
+- Select "Run service as Network Service user" (default).
+- Keep "Service Name" as MongoDB.
 
 **MongoDB Compass (Optional)**:
-- "Install MongoDB Compass" (GUI tool) ko checked rehne do (Yah files/data ko graphical tareeke se dekhne mein madad karta hai).
+- Keep "Install MongoDB Compass" (GUI tool) checked (This helps in viewing files/data graphically).
 
-**Finish**: Install par click karo aur installation poora hone do.
+**Finish**: Click Install and let the installation complete.
 
-## 🛠️ Step 3: MongoDB Shell (mongosh) Install Karna
+## 🛠️ Step 3: Install MongoDB Shell (mongosh)
 
-MongoDB Shell mongosh zaroori hai commands chalaane ke liye.
+MongoDB Shell `mongosh` is necessary for running commands.
 
-**Download Shell**: Browser mein yeh link open karo:
+**Download Shell**: Open this link in your browser:
 
 [https://www.mongodb.com/try/download/shell](https://www.mongodb.com/try/download/shell)
 
-**Options Select Karo**:
+**Select Options**:
 - **OS**: Windows
 - **Package**: MSI
 
-**Installer Chalao**: Jo shell installer file download hui hai, us par double-click karo aur default settings ke saath install kar lo.
+**Run Installer**: Double-click the downloaded shell installer file and install with default settings.
 
-## 🧪 Step 4: Verification (Check Karna)
+## 🧪 Step 4: Verification (Check)
 
-Ab hum check karenge ki sab kuch theek se kaam kar raha hai ya nahi.
+Now we will check if everything is working correctly or not.
 
-**Command Prompt Kholo**: Windows Search mein jao aur cmd type karke Command Prompt (ya PowerShell) kholo.
+**Open Command Prompt**: Go to Windows Search and type `cmd` to open Command Prompt (or PowerShell).
 
-**Shell Run Karo**: Yeh command type karo:
+**Run Shell**: Type this command:
 
 ```bash
 mongosh
 ```
 
-Agar sab kuch theek hai, to tum MongoDB shell ke andar chale jaaoge, aur tumhein kuch aisa dikhega:
+If everything is correct, you will enter the MongoDB shell, and you will see something like this:
 
 ```
 Current Mongosh version: X.X.X
@@ -88,17 +88,17 @@ Connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName
 >
 ```
 
-**Exit**: Shell se bahar aane ke liye type karo:
+**Exit**: To exit the shell, type:
 
 ```bash
 exit
 ```
 
-Ab tumhara MongoDB Server aur Shell Windows 11 par ready hai!
+Now your MongoDB Server and Shell are ready on Windows 11!
 
-**Next Step Kya Hoga?**
+**What's the Next Step?**
 
-Kya tum Node.js mein MongoDB connect karne ka code dekhna chahte ho, ya To-Do List project continue karna chahte ho?
+Do you want to see the code to connect MongoDB in Node.js, or continue with the To-Do List project?
 
 ---
 
@@ -106,7 +106,7 @@ Kya tum Node.js mein MongoDB connect karne ka code dekhna chahte ho, ya To-Do Li
 
 # MongoDB Installation on EC2 Ubuntu (user1, step by step)
 
-Thik hai bhai — pehle EC2 pe MongoDB install karte hain, phir app me integrate karenge. Slow, stepwise, bina jump kiye.
+Okay — first we will install MongoDB on EC2, then integrate it into the app. Slow, stepwise, without skipping.
 
 ---
 
@@ -126,7 +126,7 @@ Thik hai bhai — pehle EC2 pe MongoDB install karte hain, phir app me integrate
   sudo apt install -y mongodb
   ```
 
-**Error aye ga yaha pr:**
+**You might get an error here:**
 ```
 ubuntu@ip-172-31-38-139:~$ sudo apt install -y mongodb
 Reading package lists... Done
@@ -144,7 +144,7 @@ ubuntu@ip-172-31-38-139:~$
 
 *(Note: The original text had "solution:" followed by blank lines. Preserving as is.)*
 
-- **Start aur enable service:**
+- **Start and enable service:**
   ```bash
   sudo systemctl start mongodb
   sudo systemctl enable mongodb
@@ -160,8 +160,8 @@ ubuntu@ip-172-31-38-139:~$
 
 ## 3. Local security check
 
-- **Default bind IP:** MongoDB by default 127.0.0.1 pe bind hota hai (local machine only). Ye safe hai; abhi hum remote access nahi khol rahe.
-- **Port:** 27017 local pe open hota hai. EC2 security group me isko open karne ki zarurat nahi (app same server pe hai).
+- **Default bind IP:** MongoDB binds to 127.0.0.1 by default (local machine only). This is safe; we are not opening remote access right now.
+- **Port:** 27017 opens locally. No need to open this in EC2 security group (app is on the same server).
 
 ---
 
@@ -171,7 +171,7 @@ ubuntu@ip-172-31-38-139:~$
   ```bash
   mongosh
   ```
-  Agar `mongosh` na mile:
+  If `mongosh` is not found:
   ```bash
   sudo apt install -y mongodb-clients
   mongosh
@@ -191,9 +191,9 @@ ubuntu@ip-172-31-38-139:~$
 
 ---
 
-## 5. App ke liye database aur user (optional but good practice)
+## 5. Database and user for App (optional but good practice)
 
-Agar tum app user create karna chahte ho:
+If you want to create an app user:
 
 - **Admin login:**
   ```bash
@@ -220,7 +220,7 @@ Agar tum app user create karna chahte ho:
 
 ## 6. Node.js app integration (minimal wiring now, code later)
 
-- **Mongoose install (app folder me):**
+- **Mongoose install (in app folder):**
   ```bash
   npm install mongoose
   ```
@@ -229,12 +229,12 @@ Agar tum app user create karna chahte ho:
   ```bash
   export MONGO_URL="mongodb://127.0.0.1:27017/shortener"
   ```
-  Ya agar user bana liya hai:
+  Or if you created a user:
   ```bash
   export MONGO_URL="mongodb://appuser:Strong_Password_ChangeKaro@127.0.0.1:27017/shortener"
   ```
 
-- **server.js me connection (example):**
+- **server.js connection (example):**
   ```javascript
   const mongoose = require('mongoose');
   const mongoUrl = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/shortener';
@@ -246,10 +246,10 @@ Agar tum app user create karna chahte ho:
 
 ---
 
-## 7. Service hardening (later, jab base chal jaye)
+## 7. Service hardening (later, once base is working)
 
 - **Auth enable + config file:**
-  - File: `/etc/mongodb.conf` ya `/etc/mongod.conf` (Ubuntu variant)
+  - File: `/etc/mongodb.conf` or `/etc/mongod.conf` (Ubuntu variant)
   - Ensure:
     - **bindIp:** `127.0.0.1`
     - **authorization:** enabled
@@ -257,7 +257,7 @@ Agar tum app user create karna chahte ho:
     ```bash
     sudo systemctl restart mongodb
     ```
-- Abhi hum local-only rakhenge; remote exposure bilkul nahi.
+- We will keep it local-only for now; absolutely no remote exposure.
 
 ---
 
@@ -265,7 +265,7 @@ Agar tum app user create karna chahte ho:
 
 - **MongoDB status:** `sudo systemctl status mongodb`
 - **Shell test:** `mongosh` → `use shortener` → `db.stats()`
-- **App start:** PM2/Forever jo use kar rahe ho:
+- **App start:** PM2/Forever whichever you are using:
   ```bash
   pm2 restart nodeapp
   ```
@@ -286,7 +286,7 @@ Agar tum app user create karna chahte ho:
 
 ---
 
-Bhai, ye base setup ho jaye to message drop karna: “Mongo connected” logs aa rahe hain ya koi error. Phir hum schema + routes ko MongoDB pe shift karenge step-by-step (in-memory se persistent storage).
+Brother, once this base setup is done, drop a message: “Mongo connected” logs are appearing or if there is any error. Then we will shift schema + routes to MongoDB step-by-step (from in-memory to persistent storage).
 
 ---
 
@@ -294,7 +294,7 @@ Bhai, ye base setup ho jaye to message drop karna: “Mongo connected” logs aa
 
 # Node NVM Version Management
 
-Shabash boss 👌 — sahi faisla hai. Agar tum multiple users ke liye alag‑alag Node.js versions chahte ho to **system‑wide install remove karna best practice hai**.
+Great job boss 👌 — right decision. If you want different Node.js versions for multiple users, **removing the system-wide install is best practice**.
 
 ---
 
@@ -305,14 +305,14 @@ Shabash boss 👌 — sahi faisla hai. Agar tum multiple users ke liye alag‑al
 node -v
 npm -v
 ```
-Ye confirm karega ke abhi kaunsa version system‑wide install hai.
+This will confirm which version is currently installed system-wide.
 
 ### 2. Remove Node.js and npm
 ```bash
 sudo apt remove -y nodejs npm
 sudo apt autoremove -y
 ```
-Ye dono packages uninstall kar dega.
+This will uninstall both packages.
 
 ### 3. Verify removal
 ```bash
@@ -325,30 +325,30 @@ Expected: `command not found`.
 
 ## 🎯 Next Step After Removal
 
-Ab har user (user1, user2) apne environment me **NVM install karega** aur apna required Node.js version use karega.
+Now each user (user1, user2) will **install NVM** in their own environment and use their required Node.js version.
 - User1 → `nvm install 18 && nvm use 18`
 - User2 → `nvm install 20 && nvm use 20`
 
-Is tarah dono apne alag versions ke sath independent rahenge, aur koi conflict nahi hoga.
+This way both will remain independent with their separate versions, and there will be no conflict.
 
 ---
 
-👉 Boss, kya tum chahte ho main ab tumhe **NVM installation aur setup guide** bana ke du user1 ke liye step‑by‑step, phir user2 ke liye?
+👉 Boss, do you want me to create an **NVM installation and setup guide** for user1 step-by-step, then for user2?
 
-Perfect boss 👌 — ab tumne **user4** aur **user5** create kar liye hain, aur ye dono tumhare Node.js + DevOps experiments ke liye ready hain. Ye ekdum sahi step hai kyunki ab tum multiple users ke liye **different environments** test kar sakte ho.
+Perfect boss 👌 — now you have created **user4** and **user5**, and both are ready for your Node.js + DevOps experiments. This is exactly the right step because now you can test **different environments** for multiple users.
 
 ---
 
 ## 🛠 Next Logical Step
 
-Ab hum ye karenge:
+Now we will do this:
 
-### 1. System‑wide Node.js remove ho chuka hai
-- Matlab ab root/Ubuntu ke under Node.js nahi hai.
-- Har user apna apna Node.js version manage karega.
+### 1. System-wide Node.js has been removed
+- Meaning there is no Node.js under root/Ubuntu.
+- Each user will manage their own Node.js version.
 
 ### 2. NVM install per user
-Har user ke liye alag NVM setup karna hoga:
+We need to setup NVM separately for each user:
 
 ```bash
 # Login as user4
@@ -381,7 +381,7 @@ nvm use 20
 ### 3. Verify per user isolation
 - `node -v` under user4 → v18
 - `node -v` under user5 → v20
-👉 Dono apne apne versions use karenge, bina conflict ke.
+👉 Both will use their own versions, without conflict.
 
 ---
 
@@ -393,9 +393,9 @@ nvm use 20
 
 ---
 
-🎯 Ab tumhare paas ek **multi‑user, multi‑version Node.js lab** ready hai EC2 pe. Ye tumhe real production scenarios simulate karne ka mauka dega.
+🎯 Now you have a **multi-user, multi-version Node.js lab** ready on EC2. This will give you a chance to simulate real production scenarios.
 
-👉 Boss, kya tum chahte ho main tumhe abhi **user4 aur user5 ke liye PM2 setup guide** bana ke du taake dono apne alag Node.js versions ke sath background me apps run kar saken?
+👉 Boss, do you want me to create a **PM2 setup guide for user4 and user5** right now so both can run apps in the background with their separate Node.js versions?
 
 ---
 
@@ -403,60 +403,60 @@ nvm use 20
 
 # NVM Version Management of Node
 
-Zabardast boss 👌 — ab tum apna **URL shortener app** jo pehle banaya tha, usko **EC2 ke naye users (user4 / user5)** ke under clone karke test karna chahte ho. Chalo stepwise guide banate hain:
+Awesome boss 👌 — now you want to clone your **URL shortener app** (which you made earlier) under **EC2's new users (user4 / user5)** and test it. Let's make a stepwise guide:
 
 ---
 
-## 🛠 Step 1: App Clone karna
+## 🛠 Step 1: Clone App
 
-Har user ke under alag‑alag clone karna hoga:
+You need to clone separately under each user:
 
 ```bash
 # Login as user4
 ssh -i your-key.pem user4@<EC2-PUBLIC-IP>
 
-# App clone karo (GitHub se)
-git clone https://github.com/<tumhara-repo>/url-shortener.git
+# Clone App (from GitHub)
+git clone https://github.com/<your-repo>/url-shortener.git
 
 cd url-shortener
 ```
 
-Same steps user5 ke liye bhi repeat karo.
+Repeat the same steps for user5.
 
 ---
 
-## 🛠 Step 2: Dependencies Install
+## 🛠 Step 2: Install Dependencies
 
-App folder ke andar:
+Inside the app folder:
 ```bash
 npm install
 ```
 
-Ye tumhare `package.json` ke hisaab se saari dependencies install karega.
+This will install all dependencies according to your `package.json`.
 
 ---
 
-## 🛠 Step 3: Environment Variables Set
+## 🛠 Step 3: Set Environment Variables
 
-Agar tum MongoDB use karna chahte ho to connection string set karo:
+If you want to use MongoDB, set the connection string:
 
 ```bash
 export MONGO_URL="mongodb://127.0.0.1:27017/shortener"
 ```
 
-Ya agar Atlas use karna hai to Atlas ka connection string paste karo.
+Or if you want to use Atlas, paste the Atlas connection string.
 
 ---
 
-## 🛠 Step 4: App Run karna
+## 🛠 Step 4: Run App
 
-PM2 ke sath run karo (recommended):
+Run with PM2 (recommended):
 
 ```bash
 pm2 start server.js --name shortener
 ```
 
-Logs check karo:
+Check logs:
 ```bash
 pm2 logs shortener
 ```
@@ -471,21 +471,21 @@ Server running on port 4000
 
 ## 🛠 Step 5: Browser Test
 
-- EC2 ka **public IP** lo.
-- Agar Nginx reverse proxy set hai → `http://<EC2-PUBLIC-IP>/`
-- Agar direct run hai → `http://<EC2-PUBLIC-IP>:4000` (ya jo port tumne set kiya hai).
+- Get EC2 **public IP**.
+- If Nginx reverse proxy is set → `http://<EC2-PUBLIC-IP>/`
+- If direct run → `http://<EC2-PUBLIC-IP>:4000` (or whatever port you set).
 
 ---
 
 ## 🎯 Result
 
-- Tumhara **URL shortener app** ab user4 / user5 ke under independently run karega.
-- Dono apne apne Node.js versions ke sath test kar sakte hain.
-- MongoDB ke sath data persist hoga, reboot ke baad bhi links save rahenge.
+- Your **URL shortener app** will now run independently under user4 / user5.
+- Both can test with their own Node.js versions.
+- Data will persist with MongoDB, links will remain saved even after reboot.
 
 ---
 
-👉 Boss, kya tum chahte ho main tumhe ab **Nginx multi‑user config** bana ke du taake user4 aur user5 ke apps alag paths (`/user4`, `/user5`) pe serve ho EC2 ke public IP par?
+👉 Boss, do you want me to make an **Nginx multi-user config** now so that user4 and user5 apps are served on different paths (`/user4`, `/user5`) on the EC2 public IP?
 
 ---
 
@@ -513,7 +513,7 @@ sudo usermod -aG sudo user1
 
 ## 2. Repo Analysis (links-shorten-app-ec2-deployment)
 
-**Quick Take:** Tumhara app repo clean aur structured hai 👌. Ye ek **Node.js + Express based URL shortener** hai, Tailwind CSS UI ke sath. Agar tum user1 hi use karoge EC2 pe, toh deployment simple ho jaayega — bas Node.js install, repo clone, dependencies install, aur run/start service karna hoga.
+**Quick Take:** Your app repo is clean and structured 👌. It is a **Node.js + Express based URL shortener**, with Tailwind CSS UI. If you use user1 on EC2, deployment will be simple — just install Node.js, clone repo, install dependencies, and run/start service.
 
 - **Tech Stack**:
   - Backend: Node.js, Express.js
@@ -541,7 +541,7 @@ sudo usermod -aG sudo user1
 
 ## 3. Deployment Plan (EC2, user1)
 
-Since tumne decide kiya hai **user1** hi use karna, steps ye rahenge:
+Since you decided to use **user1**, the steps will be:
 
 ### 1. Login EC2 as user1
 ```bash
@@ -582,38 +582,38 @@ pm2 status
 ---
 
 ## 4. Next Steps
-- **Security**: Agar user1 hi use karna hai, toh ensure karo ke uske permissions aur SSH keys secure hon.
-- **Persistence**: pm2 ya systemd use karo taake app reboot ke baad bhi chale.
-- **Scaling**: Future me DB (MongoDB/Postgres) add karna easy hoga, kyunki abhi in-memory storage hai.
+- **Security**: If using user1, ensure their permissions and SSH keys are secure.
+- **Persistence**: Use pm2 or systemd so the app runs even after reboot.
+- **Scaling**: Adding DB (MongoDB/Postgres) in the future will be easy, as currently it is in-memory storage.
 
-👉 Kahaf, tum chaho to main tumhe **pm2 + Nginx reverse proxy setup** bhi bata dun taake app production-grade ho jaaye. Kya tum abhi simple run test karna pasand karoge ya direct production‑style setup seekhna chahte ho?
+👉 Kahaf, if you want, I can tell you **pm2 + Nginx reverse proxy setup** too so the app becomes production-grade. Would you like to do a simple run test now or learn direct production-style setup?
 
 ---
 
 ## 5. Nginx Reverse Proxy Setup (Parallel Run)
 
-Bilkul sahi soch hai Kahaf 👍 — tum chahte ho ke **jo app abhi chal raha hai wo disturb na ho**, aur ek **new directory me same app ko Nginx ke sath run karo**. Ye approach safe hai, kyunki tum ek tarah se “duplicate deployment” karoge: ek test instance (jo abhi chal raha hai) aur ek production‑style instance (Nginx ke sath).
+Absolutely right thinking Kahaf 👍 — you want the **app currently running to not be disturbed**, and run the **same app in a new directory with Nginx**. This approach is safe, because you will do a kind of "duplicate deployment": one test instance (which is running now) and one production-style instance (with Nginx).
 
 ### 🛠 Stepwise Plan
 
-#### 1. New Directory Banaana
-EC2 pe user1 ke under:
+#### 1. Create New Directory
+On EC2 under user1:
 ```bash
 cd ~
 mkdir nodeapp-nginx
 cd nodeapp-nginx
 ```
 
-#### 2. Repo Clone Karna (fresh copy)
+#### 2. Clone Repo (fresh copy)
 ```bash
 git clone https://github.com/KahafSameer/links-shorten-app-ec2-deployment.git .
 npm install
 ```
 
-#### 3. App Run Karna (Port Change)
-Taake existing app (port 3000) disturb na ho, isko **different port** pe run karo (e.g. 4000):
+#### 3. Run App (Change Port)
+So that existing app (port 3000) is not disturbed, run this on a **different port** (e.g. 4000):
 
-`server.js` me port change:
+Change port in `server.js`:
 ```javascript
 const PORT = 4000;
 ```
@@ -625,7 +625,7 @@ node server.js
 Browser: `http://<EC2-PUBLIC-IP>:4000`
 
 #### 4. Nginx Reverse Proxy Setup
-Nginx config file banao:
+Create Nginx config file:
 ```bash
 sudo nano /etc/nginx/sites-available/nodeapp-nginx
 ```
@@ -655,8 +655,8 @@ sudo systemctl reload nginx
 ```
 
 ### ✅ Result
-- Tumhara **pehla app** abhi bhi port 3000 pe chal raha hai (direct browser access).
-- Tumhara **new app** Nginx ke through port 80 pe accessible hai:
+- Your **first app** is still running on port 3000 (direct browser access).
+- Your **new app** is accessible via Nginx on port 80:
   ```
   http://<EC2-PUBLIC-IP>/
   ```
@@ -665,46 +665,46 @@ sudo systemctl reload nginx
 
 ## 6. PM2 vs Forever
 
-Bilkul 👍 — chalo easy wording me samjhata hoon taake tumhe clear ho jaaye:
+Absolutely 👍 — let me explain in easy wording so it becomes clear to you:
 
-### 🔑 PM2 aur Forever kya hote hain?
+### 🔑 What are PM2 and Forever?
 
 #### 🟢 **PM2**
-- Ye ek **process manager** hai Node.js apps ke liye.
-- Matlab: tumhe `node server.js` manually chalane ki zarurat nahi hogi.
-- Ye app ko **background me run** karata hai, aur agar server reboot ho jaaye to app **automatically restart** ho jaata hai.
+- This is a **process manager** for Node.js apps.
+- Meaning: you won't need to run `node server.js` manually.
+- It runs the app **in the background**, and if the server reboots, the app **automatically restarts**.
 - Extra features:
-  - Logs dekhna (`pm2 logs`)
-  - Multiple apps manage karna (`pm2 list`)
-  - Auto‑restart agar crash ho jaaye
+  - View logs (`pm2 logs`)
+  - Manage multiple apps (`pm2 list`)
+  - Auto-restart if it crashes
   - Easy monitoring
-Soch lo PM2 ek **smart manager** hai jo tumhare Node.js app ko hamesha zinda rakhta hai.
+Think of PM2 as a **smart manager** that keeps your Node.js app alive always.
 
 #### 🔵 **Forever**
-- Ye bhi ek **simple process manager** hai Node.js ke liye.
-- Naam ke hisaab se: app ko “forever” chalata hai.
-- Agar app crash ho jaaye to restart kar deta hai.
-- Thoda lightweight hai, PM2 ke comparison me kam features deta hai.
-- Mainly use hota hai jab tumhe sirf ek app ko background me chalana ho bina monitoring ke.
+- This is also a **simple process manager** for Node.js.
+- As per name: runs the app "forever".
+- If app crashes, it restarts it.
+- It is a bit lightweight, gives fewer features compared to PM2.
+- Mainly used when you just want to run an app in background without monitoring.
 
 ### ⚖️ Difference (Easy Words)
 
 | Tool     | Use Case | Features |
 |----------|----------|----------|
-| **PM2**  | Production apps | Auto‑restart, monitoring, logs, multiple apps |
-| **Forever** | Simple background run | Auto‑restart, lightweight, fewer features |
+| **PM2**  | Production apps | Auto-restart, monitoring, logs, multiple apps |
+| **Forever** | Simple background run | Auto-restart, lightweight, fewer features |
 
 👉 Easy analogy:
-- **Forever** = ek simple watchman jo sirf app ko chalata rakhta hai.
-- **PM2** = ek full manager jo app ko chalata bhi hai, monitor bhi karta hai, aur crash hone pe handle bhi karta hai.
+- **Forever** = a simple watchman who just keeps the app running.
+- **PM2** = a full manager who runs the app, monitors it, and handles it upon crashing.
 
 ---
 
 ## 7. PM2 Setup Guide
 
-Perfect Kahaf 👌 — chalo ab tumhare app ko **PM2** ke sath run karte hain. Ye tumhe production‑style stability dega: app background me chalega, crash hone pe auto‑restart hoga, aur reboot ke baad bhi survive karega.
+Perfect Kahaf 👌 — let's run your app with **PM2** now. This will give you production-style stability: app will run in background, auto-restart on crash, and survive after reboot.
 
-### 1. PM2 Install karo (global)
+### 1. Install PM2 (global)
 ```bash
 npm install -g pm2
 ```
@@ -713,50 +713,50 @@ Check version:
 pm2 -v
 ```
 
-### 2. App ko PM2 ke sath start karo
-App directory me jao (jo Nginx ke sath run karna hai):
+### 2. Start App with PM2
+Go to app directory (which is to be run with Nginx):
 ```bash
 cd ~/nodeapp-nginx
 pm2 start server.js --name nodeapp
 ```
-👉 `--name nodeapp` se tumhe ek friendly name milta hai instead of process ID.
+👉 `--name nodeapp` gives you a friendly name instead of process ID.
 
-### 3. Status aur Logs dekhna
+### 3. View Status and Logs
 ```bash
 pm2 list
 pm2 logs nodeapp
 ```
 
-### 4. App ko manage karna
+### 4. Manage App
 - Stop: `pm2 stop nodeapp`
 - Restart: `pm2 restart nodeapp`
 - Delete: `pm2 delete nodeapp`
 
-### 5. Auto‑start on Reboot
+### 5. Auto-start on Reboot
 ```bash
 pm2 startup systemd
 ```
-Ye command tumhe ek line output karega (jaise `sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u user1 --hp /home/user1`).
-Us line ko copy‑paste karke run karo.
+This command will output a line (like `sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u user1 --hp /home/user1`).
+Copy-paste and run that line.
 
-Phir save current processes:
+Then save current processes:
 ```bash
 pm2 save
 ```
 
 ### ✅ Result
-- Tumhara app ab **background me run** karega.
-- Agar crash ho jaaye → PM2 auto‑restart karega.
-- Agar EC2 reboot ho jaaye → PM2 startup script se app auto‑start ho jaayega.
-- Nginx ab hamesha port 80 pe serve karega, bina manual `node server.js` chalaye.
+- Your app will now **run in background**.
+- If it crashes → PM2 will auto-restart.
+- If EC2 reboots → App will auto-start via PM2 startup script.
+- Nginx will now always serve on port 80, without running `node server.js` manually.
 
 ---
 
 ## 8. Forever Setup Guide
 
-Zabardast Kahaf 👌 — ab tum apne **dusre folder wale app** ko port **3000** par **Forever** ke sath test karna chahte ho. Chalo stepwise easy guide deta hoon:
+Awesome Kahaf 👌 — now you want to test your **second folder app** on port **3000** with **Forever**. Let me give a stepwise easy guide:
 
-### 1. Forever Install karo (user1 ke under)
+### 1. Install Forever (under user1)
 ```bash
 npm install -g forever
 ```
@@ -765,46 +765,46 @@ Check version:
 forever --version
 ```
 
-### 2. App Directory me jao
-Tumne jo dusra folder banaya tha (port 3000 wala):
+### 2. Go to App Directory
+The second folder you created (port 3000 one):
 ```bash
-cd ~/nodeapp   # ya jo bhi folder ka naam hai
+cd ~/nodeapp   # or whatever the folder name is
 ```
 
-### 3. Forever ke sath App Start karo
+### 3. Start App with Forever
 ```bash
 forever start server.js
 ```
-👉 Ye tumhara app background me run karega port 3000 par.
-Ab tum terminal band bhi kar do, app chalti rahegi.
+👉 This will run your app in background on port 3000.
+Now even if you close the terminal, the app will keep running.
 
-### 4. Status Check karo
+### 4. Check Status
 ```bash
 forever list
 ```
-Ye tumhe dikhayega kitne apps Forever ke sath chal rahe hain.
+This will show how many apps are running with Forever.
 
-### 5. Logs dekhna
+### 5. View Logs
 ```bash
 forever logs
 ```
-Ya specific app ke liye:
+Or for specific app:
 ```bash
 forever logs 0
 ```
-(0 = process ID jo `forever list` me dikhega)
+(0 = process ID shown in `forever list`)
 
-### 6. Manage karna
+### 6. Manage
 - Stop: `forever stop server.js`
 - Restart: `forever restart server.js`
 - Delete (remove from list): `forever stopall`
 
 ### 🎯 Result
-- Tumhara **dusra app** ab port 3000 par Forever ke sath background me chal raha hoga.
-- Tumhare paas ab **do setups parallel** hain:
-  - Port 4000 → PM2 ke sath (Nginx reverse proxy)
-  - Port 3000 → Forever ke sath (direct run)
+- Your **second app** is now running in background on port 3000 with Forever.
+- You now have **two setups parallel**:
+  - Port 4000 → With PM2 (Nginx reverse proxy)
+  - Port 3000 → With Forever (direct run)
 
-👉 Kahaf, ab tum dono tools ka **real comparison** kar sakte ho:
-- PM2 → monitoring, auto‑restart on reboot, logs, multiple apps manage.
+👉 Kahaf, now you can do a **real comparison** of both tools:
+- PM2 → monitoring, auto-restart on reboot, logs, multiple apps manage.
 - Forever → simple background run, lightweight, basic restart.
